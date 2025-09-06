@@ -1,0 +1,85 @@
+
+.container {
+	border: 2px solid #000000;
+	width: 910px;
+	height: 700px;
+}
+
+.logoBanner {
+	display: flex;
+	margin-bottom: 5px;
+	height: 20%;
+}
+
+.logo {
+	background-color: #F8B1FF;
+	width: 20%;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	margin-right: 5px;
+}
+
+.banner {
+	background-color: #F8B1FF;
+	width: 80%;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.header {
+	background-color: #F8B1FF;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	margin-bottom: 5px;
+	height: 10%;
+}
+
+.contentBox {
+	display: flex;
+	margin-bottom: 5px;
+	height: 60%;
+}
+
+.left {
+	background-color: #F8B1FF;
+	width: 20%;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	margin-right: 5px;
+	height: 100%;
+}
+
+.content {
+	background-color: #F8B1FF;
+	width: 60%;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	margin-right: 5px;
+	height: 100%;
+}
+
+.right {
+	background-color: #F8B1FF;
+	width: 20%;align-content: center;
+	text-align: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.footer {
+	background-color: #F8B1FF;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	height: 10%;
+}
+
+.logoImage {
+	height: 140px;
+	width: 140px;
+}
