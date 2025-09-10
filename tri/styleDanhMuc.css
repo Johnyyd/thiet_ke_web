@@ -1,6 +1,4 @@
 .container {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 20px;
@@ -9,13 +7,43 @@
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.container h1 {
+	font-size: 2rem;
+	margin-left: 6%;
+	margin-bottom: 20px;
+	font-size: 50px;
+}
+
+.direction {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+	margin-bottom: 20px;
+	font-size: 1rem;
+	color: #555;
+	margin-left: 6%;
+}
+
+.direction span {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* khoảng cách giữa các phần tử */
+}
+
+.direction a {
+  text-decoration: none;
+  color: #333;
+}
+
 .content {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	gap: 20px;
+	gap: 30px;
 }
 
 .card {
@@ -39,33 +67,38 @@
 }
 
 .product-preview {
-  position: relative;
-  width: 50%;
-  height: 400px;
+	position: relative;
+	width: 50%;
+	height: 400px;
 }
 
 .product-preview img,
 .product-preview model-viewer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.4s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.4s ease;
 }
 
 .product-preview .model {
-  opacity: 0; /* Ẩn model lúc đầu */
-  pointer-events: none; /* Không nhận tương tác khi ẩn */
+	opacity: 0;
+	/* Ẩn model lúc đầu */
+	pointer-events: none;
+	/* Không nhận tương tác khi ẩn */
 }
 
 .product-preview:hover img {
-  opacity: 0; /* Ẩn ảnh khi hover */
+	opacity: 0;
+	/* Ẩn ảnh khi hover */
 }
 
 .product-preview:hover .model {
-  opacity: 1; /* Hiện model khi hover */
-  pointer-events: auto; /* Cho phép xoay, zoom model */
+	opacity: 1;
+	/* Hiện model khi hover */
+	pointer-events: auto;
+	/* Cho phép xoay, zoom model */
 }
 
 .card-info {
@@ -135,4 +168,12 @@
 
 .button:hover {
 	background-color: #a3a3a3;
+}
+
+.pagination {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }

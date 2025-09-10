@@ -1,0 +1,79 @@
+.container {
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+	width: 400px;
+	height: 400px;
+	border-radius: 10px;
+	background: #f5f5f5;
+	position: relative;
+	padding: 10px;
+	border: 2px solid #c3c6ce;
+	transition: 0.5s ease-out;
+	overflow: visible;
+}
+
+.card-details {
+	color: black;
+	height: 100%;
+	gap: .5em;
+	display: flex;
+	place-content: center;
+}
+
+.product-preview {
+	position: relative;
+	width: 50%;
+	height: 400px;
+}
+
+.product-preview img,
+.product-preview model-viewer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.4s ease;
+}
+
+.product-preview .model {
+	opacity: 0;
+	/* Ẩn model lúc đầu */
+	pointer-events: none;
+	/* Không nhận tương tác khi ẩn */
+}
+
+.product-preview:hover img {
+	opacity: 0;
+	/* Ẩn ảnh khi hover */
+}
+
+.product-preview:hover .model {
+	opacity: 1;
+	/* Hiện model khi hover */
+	pointer-events: auto;
+	/* Cho phép xoay, zoom model */
+}
+
+.card-info {
+	width: 50%;
+	height: 100%;
+	padding: 0 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.image {
+	width: 200px;
+	height: auto;
+	border: 0.2px solid #f9f9f9;
+	border-radius: 10px;
+}
