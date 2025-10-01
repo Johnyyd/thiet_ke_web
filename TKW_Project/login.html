@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA - Đăng Nhập</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100">
+    <div class="background-container">
+        <div class="background-image"></div>
+        <div class="background-overlay"></div>
+    </div>
+    
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <div class="login-container">
+        <div class="brand-header">
+            <h1 class="brand-logo">AURA</h1>
+            <p class="brand-tagline">Luxury Perfume Collection</p>
+        </div>
+        
+        <div class="form-wrapper">
+            <form id="login-form" class="form-content">
+                <h2 class="form-title">Đăng Nhập</h2>
+                <p class="form-subtitle">Chào mừng trở lại! Khám phá bộ sưu tập nước hoa cao cấp của chúng tôi</p>
+                
+                <div class="input-group">
+                    <input type="email" id="email" class="input-field" placeholder=" " required>
+                    <label for="email" class="input-label">Địa chỉ Email</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" class="input-field" placeholder=" " required>
+                    <label for="password" class="input-label">Mật khẩu</label>
+                </div>
+                
+                <button type="submit" class="submit-button" id="login-btn">Khám phá bộ sưu tập</button>
+                
+                <div class="form-links">
+                    <a id="show-register-link">Tạo tài khoản mới</a>
+                    <span class="divider">|</span>
+                    <a id="show-forgot-password-link">Quên mật khẩu?</a>
+                </div>
+            </form>
+
+            <form id="register-form" class="form-content hidden">
+                <h2 class="form-title">Tạo Tài Khoản</h2>
+                <p class="form-subtitle">Tham gia cộng đồng những người yêu thích hương thơm tinh tế</p>
+                
+                <div class="input-group">
+                    <input type="text" id="reg-fullname" class="input-field" placeholder=" " required>
+                    <label for="reg-fullname" class="input-label">Họ và tên đầy đủ</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" id="reg-email" class="input-field" placeholder=" " required>
+                    <label for="reg-email" class="input-label">Địa chỉ Email</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="reg-password" class="input-field" placeholder=" " required>
+                    <label for="reg-password" class="input-label">Mật khẩu</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="reg-confirm-password" class="input-field" placeholder=" " required>
+                    <label for="reg-confirm-password" class="input-label">Xác nhận mật khẩu</label>
+                </div>
+                
+                <button type="submit" class="submit-button">Bắt đầu hành trình</button>
+                
+                <div class="form-links">
+                    <a class="back-to-login-link">← Quay lại đăng nhập</a>
+                </div>
+            </form>
+
+            <form id="forgot-password-form" class="form-content hidden">
+                <h2 class="form-title">Khôi Phục Mật Khẩu</h2>
+                <p class="form-subtitle">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu</p>
+                
+                <div class="input-group">
+                    <input type="email" id="forgot-email" class="input-field" placeholder=" " required>
+                    <label for="forgot-email" class="input-label">Địa chỉ Email đã đăng ký</label>
+                </div>
+                
+                <button type="submit" class="submit-button">Gửi hướng dẫn</button>
+                
+                <div class="form-links">
+                    <a class="back-to-login-link">← Quay lại đăng nhập</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

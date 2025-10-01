@@ -1,40 +1,815 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-	<meta charset="utf-8">
-	<title>BTVN</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA - Luxury Perfume Collection</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+	<script src="bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="styleChiTietDanhMuc.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Global Color Override */
+        :root {
+            --gold: #D4AF37;
+            --black: #1a1a1a;
+            --white: #ffffff;
+        }
+        
+        /* Global Color Overrides */
+        body {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        /* Text Colors */
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            color: var(--white);
+        }
+        
+        .text-primary, .text-info, .text-success, .text-warning, .text-danger, .text-secondary {
+            color: var(--gold) !important;
+        }
+        
+        /* Backgrounds */
+        .bg-primary, .bg-info, .bg-success, .bg-warning, .bg-danger, .bg-secondary {
+            background-color: var(--black) !important;
+            color: var(--white) !important;
+        }
+        
+        /* Buttons */
+        .btn, button {
+            color: var(--gold) !important;
+            border-color: var(--gold) !important;
+            background-color: transparent !important;
+        }
+        
+        .btn:hover, button:hover {
+            color: var(--black) !important;
+            background-color: var(--gold) !important;
+            border-color: var(--gold) !important;
+        }
+        
+        .btn-primary, .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--gold) !important;
+            border-color: var(--gold) !important;
+            color: var(--black) !important;
+        }
+        
+        /* Form Controls */
+        .form-control, .form-select {
+            background-color: var(--black) !important;
+            color: var(--white) !important;
+            border-color: var(--gold) !important;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+            border-color: var(--gold) !important;
+        }
+        
+        /* Cards */
+        .card {
+            background-color: var(--black);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+        
+        .card-title, .card-text {
+            color: var(--white);
+        }
+        
+        /* Navigation */
+        .nav-link, .navbar-nav .nav-link {
+            color: var(--white) !important;
+        }
+        
+        .nav-link:hover, .navbar-nav .nav-link:hover {
+            color: var(--gold) !important;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black) !important;
+            color: var(--white) !important;
+            border-top: 1px solid var(--gold);
+        }
+        
+        footer a {
+            color: var(--white) !important;
+        }
+        
+        footer a:hover {
+            color: var(--gold) !important;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 70vh;
+            padding: 40px 0;
+        }
+        
+        .container h2 {
+            color: var(--gold);
+            margin-bottom: 40px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+        
+        .card {
+            background-color: var(--black);
+            border: 1px solid var(--gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .card-title {
+            color: var(--gold) !important;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover .card-title {
+            color: var(--black) !important;
+        }
+        
+        .card-text {
+            color: var(--white);
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            background-color: var(--white) !important;
+            color: var(--gold) !important;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gold);
+        }
+        
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background-color: var(--black);
+            margin-bottom: 60px;
+        }
+        
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            color: var(--white);
+            text-align: right;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            max-width: 600px;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                height: 80vh;
+                min-height: 500px;
+            }
+            
+            .hero-content {
+                height: 80vh;
+                min-height: 500px;
+                text-align: center;
+                align-items: center;
+                padding: 0 30px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-section {
+                height: 70vh;
+                min-height: 400px;
+            }
+            
+            .hero-content {
+                height: 70vh;
+                min-height: 400px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .card:hover .price-tag {
+            background-color: var(--black) !important;
+            color: var(--gold) !important;
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+        
+        .btn-outline-primary {
+            color: var(--gold) !important;
+            border-color: var(--gold);
+            background-color: transparent;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--gold) !important;
+            color: var(--black) !important;
+            border-color: var(--gold) !important;
+        }
+        
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--black);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .model-preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-image-container:hover .product-image {
+            opacity: 0;
+        }
+        
+        .product-image-container:hover .model-preview {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<div class="logoBanner">
-			<div class="logo">
-				<img class="logoImage" src="assects/logo.jpg">
-			</div>
-			<div class="banner">
-				<p>Banner</p>
-			</div>
-		</div>
-		<div class="header">
-			<p>Header-Link</p>
-		</div>
-		
-		<div class="contentBox">
-			<div class="left">
-				<p>Left</p>
-			</div>
-			<div class="content">
-				<p>Content</p>
-			</div>
-			<div class="right">
-				<p>Right</p>
-			</div>
-		</div>
-		
-		<div class="footer">
-			<p>Footer</p>
-		</div>
-	</div>
+    <!-- Header Include -->
+    <div id="header">
+        <!--#include virtual="/layout/header.html" -->
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-image-container">
+            <img src="assects/hero-perfume.jpg" alt="Nước hoa cao cấp" class="hero-image">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-subtitle">Gương mặt để lại ấn tượng khó quên nhất?</h2>
+                <h1 class="hero-title">N°5 IS THE ANSWER*</h1>
+                <p class="hero-subtitle">*N°5 LÀ CÂU TRẢ LỜI</p>
+                <a href="https://www.chanel.com/vn/nuoc-hoa/chanel-number-5/" target="_self" rel="nofollow" class="btn btn-outline-light btn-lg px-4">KHÁM PHÁ</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content" id="collections">
+        <div class="container">
+            <h2 class="text-center mb-5">SẢN PHẨM CHỦ ĐẠO</h2>
+            <!-- Product Grid -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Product 1 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-image-container">
+                            <img src="assects/pexels-airamdphoto-33711970.jpg" class="card-img-top product-image" alt="Perfume 1">
+                            <div class="model-preview">
+                                <model-viewer 
+                                    src="assects/model/scene.gltf" 
+                                    alt="3D Model" 
+                                    auto-rotate 
+                                    camera-controls
+                                    shadow-intensity="1">
+                                </model-viewer>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để xem chi tiết">N°5</h5>
+                            <p class="card-text">EAU DE PARFUM DẠNG XỊT</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Xem chi tiết</button>
+                                <span class="price-tag">5 400 000 VND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-image-container">
+                            <img src="assects/pexels-alokkd1-29801749.jpg" class="card-img-top product-image" alt="Perfume 2">
+                            <div class="model-preview">
+                                <model-viewer 
+                                    src="assects/model/scene.gltf" 
+                                    alt="3D Model" 
+                                    auto-rotate 
+                                    camera-controls
+                                    shadow-intensity="1">
+                                </model-viewer>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để xem chi tiết">COCO MADEMOISELLE</h5>
+                            <p class="card-text">XỊT DƯỠNG THỂ HƯƠNG NƯỚC HOA</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Xem chi tiết</button>
+                                <span class="price-tag">2 740 000 VND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-image-container">
+                            <img src="assects/pexels-hamza01nsr-12562775.jpg" class="card-img-top product-image" alt="Perfume 3">
+                            <div class="model-preview">
+                                <model-viewer 
+                                    src="assects/model/scene.gltf" 
+                                    alt="3D Model" 
+                                    auto-rotate 
+                                    camera-controls
+                                    shadow-intensity="1">
+                                </model-viewer>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để xem chi tiết">BLEU DE CHANEL</h5>
+                            <p class="card-text">L'EXCLUSIF</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Xem chi tiết</button>
+                                <span class="price-tag">5 480 000 VND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-image-container">
+                            <img src="assects/pexels-jay-soundo-2148060180-33820346.jpg" class="card-img-top product-image" alt="Perfume 4">
+                            <div class="model-preview">
+                                <model-viewer 
+                                    src="assects/model/scene.gltf" 
+                                    alt="3D Model" 
+                                    auto-rotate 
+                                    camera-controls
+                                    shadow-intensity="1">
+                                </model-viewer>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để xem chi tiết">Gió Biển</h5>
+                            <p class="card-text">Tươi mát và sảng khoái với hương biển và cam quýt. Hoàn hảo cho ban ngày.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Thêm vào giỏ</button>
+                                <span class="price-tag">1.850.000₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assects/pexels-jay-soundo-2148060180-33820350.jpg" class="card-img-top" alt="Perfume 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Trầm Hương Hoàng Gia</h5>
+                            <p class="card-text">Hương gỗ đậm đà và tinh tế với các loại gia vị phương Đông.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Thêm vào giỏ</button>
+                                <span class="price-tag">2.950.000₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assects/pexels-nediyodukenson-13875783.jpg" class="card-img-top" alt="Perfume 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Hoa Hồng Nhung</h5>
+                            <p class="card-text">Sự kết hợp lãng mạn giữa hoa hồng, mẫu đơn và chút xạ hương.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <button class="btn btn-outline-primary">Thêm vào giỏ</button>
+                                <span class="price-tag">2.150.000₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Feature Section: BLEU DE CHANEL L’EXCLUSIF -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-md-6 order-2 order-md-1">
+                    <h3 class="text-uppercase mb-2">Mới</h3>
+                    <h2 class="mb-3">BLEU DE CHANEL L’EXCLUSIF</h2>
+                    <p>Phiên bản bí ẩn và mãnh liệt nhất của BLEU DE CHANEL nổi bật với hương gỗ, hổ phách-aromatic nồng nàn.</p>
+                    <a href="#" class="btn btn-outline-primary">KHÁM PHÁ</a>
+                </div>
+                <div class="col-12 col-md-6 order-1 order-md-2">
+                    <img src="assects/logo.jpg" class="img-fluid rounded" alt="BLEU DE CHANEL">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section: N°5 Eau de Parfum -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-md-6">
+                    <img src="assects/pexels-airamdphoto-33711970.jpg" class="img-fluid rounded" alt="N°5">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3 class="text-uppercase mb-2">Mùi hương khơi gợi sự bí ẩn nhất?</h3>
+                    <h2 class="mb-3">N°5 EAU DE PARFUM</h2>
+                    <p>N°5, một đóa hoa aldehyde hoà quyện giữa hương hoa hồng và hoa nhài, được tăng cường bởi nốt hương aldehyde mang đến sự hiện diện độc đáo. Một hương thơm bí ẩn có sức hấp dẫn không thể lý giải. Nếu sự bí ẩn được đặt tên, N°5 sẽ là câu trả lời.</p>
+                    <a href="#" class="btn btn-outline-primary">KHÁM PHÁ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Floating Buttons */
+        .btn-floating {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-floating.show {
+            opacity: 1;
+        }
+        
+        #backToTop {
+            bottom: 30px;
+            right: 30px;
+        }
+        
+        #scrollToBottom {
+            bottom: 100px;
+            right: 30px;
+        }
+        
+        /* Product Card Styles */
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            background: #f8f9fa;
+        }
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            padding: 20px;
+            transform: scale(0.9);
+        }
+        
+        .product-image-container:hover .product-image {
+            transform: scale(1);
+        }
+        .model-preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image-container:hover .model-preview {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .product-image-container:hover .model-preview {
+            opacity: 1;
+        }
+        .product-image-container:hover .product-image {
+            opacity: 0;
+        }
+        .model-viewer {
+            width: 100% !important;
+            height: 100% !important;
+            transform: scale(1.2) translateY(10%);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-image-container:hover .model-viewer {
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Price Tag */
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #0d6efd;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(13, 110, 253, 0.3);
+            z-index: 2;
+        }
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1.5rem;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .card-body {
+            background: #f8f9fa;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #2c3e50;
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover .card-title {
+            color: #0d6efd;
+        }
+        
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            min-height: 60px;
+        }
+        
+        .btn-outline-primary {
+            border-width: 2px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(13, 110, 253, 0.2);
+        }
+        .btn-outline-primary {
+            width: 100%;
+            margin-top: 10px;
+        }
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            color: #333;
+            font-weight: 600;
+        }
+        .main-content {
+            padding: 40px 0;
+            min-height: auto;
+            align-items: flex-start;
+        }
+    </style>
+    
+    <!-- Footer Include -->
+    <div id="footer">
+        <!--#include virtual="/layout/footer.html" -->
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary btn-floating" title="Lên đầu trang">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    
+    <!-- Scroll to Bottom Button -->
+    <button id="scrollToBottom" class="btn btn-primary btn-floating" title="Xuống cuối trang">
+        <i class="bi bi-arrow-down"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- SSI (Server Side Includes) for local testing -->
+    <script>
+        // This is a fallback for local testing without server-side includes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('/layout/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+            
+            // Load footer
+            fetch('/layout/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+    </script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            const scrollToBottomBtn = document.getElementById('scrollToBottom');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+                
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                    scrollToBottomBtn.classList.remove('show');
+                } else {
+                    scrollToBottomBtn.classList.add('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            scrollToBottomBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
 </body>
 </html>
